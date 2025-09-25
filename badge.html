@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Coding Badges</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-image: url('cyber-security-expert-working-with-technology-neon-lights.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  /* You can keep other styles you already have */
+  color: white;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30, 60, 114, 0.60);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 3rem;
+}
+
+.platform {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.platform-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ffd700;
+  text-align: center;
+}
+
+.badges-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.badge-link {
+  display: block;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.badge-link:hover {
+  transform: scale(1.05);
+}
+
+.badge-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.badge-img:hover {
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+}
+
+.add-badge {
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add-badge:hover {
+  border-color: rgba(255, 215, 0, 0.5);
+  color: rgba(255, 215, 0, 0.8);
+}
+
+.add-badge-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.add-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.2rem; }
+  .badges-container { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .platform { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>🏆 My Coding Badges</h1>
+    
+    <!-- LeetCode Section -->
+    <div class="platform">
+      <h2 class="platform-title">LeetCode Badges</h2>
+      <div class="badges-container">
+        <!-- Example badge - replace with your actual badge images -->
+        <a href="https://leetcode.com/medal/?showImg=0&id=7384211&isLevel=false" class="badge-link">
+          <img src="6augbadge.png" alt="LeetCode Badge" class="badge-img">
+        </a>
+          <a href="https://leetcode.com/medal/?showImg=0&id=7668699&isLevel=false" class="badge-link">
+          <img src="7july25.png" alt="LeetCode Badge" class="badge-img">
+        </a>
+         <a href="https://leetcode.com/medal/?showImg=0&id=7418556&isLevel=false" class="badge-link">
+          <img src="Screenshot 2025-09-09 160801.png" alt="LeetCode Badge" class="badge-img">
+        </a>
+       
+      </div>
+    </div>
+
+    <!-- HackerRank Section -->
+    <div class="platform">
+      <h2 class="platform-title">HackerRank Badges</h2>
+      <div class="badges-container">
+        <!-- Example badge - replace with your actual badge images -->
+        <a href="https://www.hackerrank.com/profile/AIML1_2310215" class="badge-link">
+          <img src="Screenshot 2025-09-09 161011.png" alt="HackerRank Badge" class="badge-img">
+        </a>
+        
+       
+      </div>
+    </div>
+
+     <div class="platform">
+      <h2 class="platform-title">Devpost Badges</h2>
+      <div class="badges-container">
+        <!-- Example badge - replace with your actual badge images -->
+        <a href="https://devpost.com/2k23-psitaiml2310215/achievements" class="badge-link">
+          <img src="yoy1.png" alt="LeetCode Badge" class="badge-img">
+        </a>
+          <a href="https://devpost.com/2k23-psitaiml2310215/achievements" class="badge-link">
+          <img src="yoy2.png" alt="LeetCode Badge" class="badge-img">
+        </a>
+         <a href="https://devpost.com/2k23-psitaiml2310215/achievements "class="badge-link">
+          <img src="yoy3.png" alt="LeetCode Badge" class="badge-img">
+        </a>
+        <a href="https://devpost.com/2k23-psitaiml2310215/achievements" class="badge-link">
+          <img src="yoy4.png" alt="LeetCode Badge" class="badge-img">
+        </a>
+       
+      </div>
+    </div>
+
+    <!-- Other Platforms Section -->
+    <div class="platform">
+      <h2 class="platform-title">Other Platform Badges</h2>
+      <div class="badges-container">
+        <div class="add-badge">
+          <div class="add-icon">+</div>
+          <div class="add-badge-text">Add Other Badges</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="text-align: center; padding: 1rem; color: white; position: relative; z-index: 1;">
+    &copy; 2025 Parth Shukla. All rights reserved.
+</body>
+</html>

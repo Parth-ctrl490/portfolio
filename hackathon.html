@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hackathons | Parth Shukla</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        /* Accessibility: Reduces motion for users with a preference for it */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --card-border: rgba(255, 255, 255, 0.2);
+            --text-color: rgba(255, 255, 255, 0.9);
+            --highlight-color: #fbbf24;
+            --winner-color: #ffc400;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: var(--primary-gradient);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Image */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2074');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.1;
+            z-index: -2;
+        }
+
+        /* Animated Stars Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: fall 20s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+        
+        /* Star sizes and positions */
+        .star:nth-child(1) { width: 2px; height: 2px; top: 10%; left: 5%; animation-duration: 18s; animation-delay: 2s; }
+        .star:nth-child(2) { width: 3px; height: 3px; top: 20%; left: 15%; animation-duration: 22s; animation-delay: 4s; }
+        .star:nth-child(3) { width: 2px; height: 2px; top: 30%; left: 25%; animation-duration: 15s; animation-delay: 6s; }
+        .star:nth-child(4) { width: 4px; height: 4px; top: 40%; left: 35%; animation-duration: 25s; animation-delay: 8s; }
+        .star:nth-child(5) { width: 3px; height: 3px; top: 50%; left: 45%; animation-duration: 19s; animation-delay: 10s; }
+        .star:nth-child(6) { width: 2px; height: 2px; top: 60%; left: 55%; animation-duration: 21s; animation-delay: 12s; }
+        .star:nth-child(7) { width: 4px; height: 4px; top: 70%; left: 65%; animation-duration: 16s; animation-delay: 14s; }
+        .star:nth-child(8) { width: 3px; height: 3px; top: 80%; left: 75%; animation-duration: 23s; animation-delay: 16s; }
+        .star:nth-child(9) { width: 2px; height: 2px; top: 90%; left: 85%; animation-duration: 17s; animation-delay: 18s; }
+        .star:nth-child(10) { width: 4px; height: 4px; top: 95%; left: 95%; animation-duration: 20s; animation-delay: 20s; }
+        
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+            z-index: 1000;
+            animation: slideInLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Container */
+        .hackathons-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 20px 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .hackathons-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hackathons-header h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5)); }
+        }
+
+        .hackathons-header p {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            animation: fadeIn 1s ease 0.3s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        /* Achievement Stats */
+        .achievement-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .stat-item {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+            will-change: transform, box-shadow;
+            position: relative;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: clamp(2.5rem, 6vw, 3rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            animation: numberCount 2s ease forwards;
+        }
+
+        @keyframes numberCount {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .stat-label {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Hackathon Cards Grid */
+        .hackathons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .hackathon-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, background 0.4s ease-in-out;
+            animation: cardSlideIn 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) both;
+            position: relative;
+            will-change: transform, box-shadow;
+        }
+
+        /* Shine Effect */
+        .hackathon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hackathon-card:hover::before {
+            left: 100%;
+        }
+
+        .hackathon-card:nth-child(1) { animation-delay: 0.2s; }
+        .hackathon-card:nth-child(2) { animation-delay: 0.4s; }
+        .hackathon-card:nth-child(3) { animation-delay: 0.6s; }
+        .hackathon-card:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes cardSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .hackathon-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .hack-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hack-logo {
+            font-size: 3rem;
+            animation: logoSpin 3s ease infinite;
+        }
+
+        @keyframes logoSpin {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(5deg) scale(1.1); }
+            75% { transform: rotate(-5deg) scale(1.1); }
+        }
+
+        .hack-status {
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: statusGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes statusGlow {
+            0%, 100% { box-shadow: 0 0 10px currentColor; }
+            50% { box-shadow: 0 0 20px currentColor; }
+        }
+
+        .hack-status.participated {
+            background: rgba(52, 211, 153, 0.2);
+            color: #34d399;
+            border: 1px solid #34d399;
+        }
+
+        .hack-status.finalist {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            border: 1px solid #fbbf24;
+        }
+
+        .hack-status.winner {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--winner-color);
+            border: 1px solid var(--winner-color);
+            animation-duration: 1.5s;
+        }
+
+        .hack-content {
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hack-title {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 10px;
+            animation: titleGlow 3s ease infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+        }
+
+        .hack-organizer {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .hack-date {
+            color: var(--highlight-color);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hack-description {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .hack-highlights h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .highlights-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .highlight-tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: tagFloat 3s ease infinite;
+        }
+
+        .highlight-tag:nth-child(odd) { animation-delay: 0.5s; }
+        .highlight-tag:nth-child(even) { animation-delay: 1s; }
+
+        @keyframes tagFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .highlight-tag:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .hack-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hack-btn {
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hack-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+            z-index: -1;
+        }
+
+        .hack-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .project-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+        }
+
+        .link-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .certificate-btn {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+            border: none;
+        }
+
+        .hack-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 25px;
+            padding: 60px;
+            text-align: center;
+            animation: fadeInUp 1s ease 0.8s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .cta-section h3 {
+            color: #fff;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hackathons-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hackathons-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .back-btn {
+                top: 20px;
+                left: 20px;
+                padding: 10px 20px;
+            }
+            
+            .achievement-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hack-actions {
+                flex-direction: column;
+            }
+            
+            .hackathons-container {
+                padding: 80px 15px 30px;
+            }
+            
+            .cta-section {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .achievement-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .hackathons-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .hackathon-card {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+
+    <a href="index.html" class="back-btn">← Back to Profile</a>
+    
+    <div class="hackathons-container">
+        <div class="hackathons-header">
+            <h1>Hackathon Journey 🚀</h1>
+            <p>Competitive programming and innovation challenges that shaped my skills</p>
+        </div>
+
+        <div class="achievement-stats">
+            <div class="stat-item">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Hackathons</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Awards Won</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Years Active</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">120+</div>
+                <div class="stat-label">Hours Coded</div>
+            </div>
+        </div>
+
+        <div class="hackathons-grid">
+            <div class="hackathon-card">
+                <div class="hack-header">
+                    <div class="hack-logo">🚀</div>
+                    <div class="hack-status participated">Participated</div>
+                </div>
+                <div class="hack-content">
+                    <h3 class="hack-title">NASA Space Apps Challenge</h3>
+                    <p class="hack-organizer">NASA • Global Space Hackathon</p>
+                    <p class="hack-date">Participated: October 2025</p>
+                    <p class="hack-description">Participated in NASA's annual global hackathon focused on space exploration and Earth science challenges. Developed "EarthGuardian AI" - an intelligent early warning system for natural disasters using satellite imagery and machine learning to protect vulnerable communities worldwide.</p>
+                    <div class="hack-highlights">
+                        <h4>Key Highlights</h4>
+                        <div class="highlights-list">
+                            <span class="highlight-tag">NASA Open Data</span>
+                            <span class="highlight-tag">Machine Learning</span>
+                            <span class="highlight-tag">Satellite Imagery</span>
+                            <span class="highlight-tag">Disaster Prevention</span>
+                            <span class="highlight-tag">Global Impact</span>
+                        </div>
+                    </div>
+                    <div class="hack-actions">
+                        <a href="#" class="hack-btn project-btn">🛸 View Project</a>
+                        <a href="https://www.spaceappschallenge.org/" target="_blank" class="hack-btn link-btn">🌌 Official Site</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hackathon-card">
+                <div class="hack-header">
+                    <div class="hack-logo">🇮🇳</div>
+                    <div class="hack-status participated">Participated</div>
+                </div>
+                <div class="hack-content">
+                    <h3 class="hack-title">Smart India Hackathon</h3>
+                    <p class="hack-organizer">Government of India • AICTE</p>
+                    <p class="hack-date">Participated: 2024</p>
+                    <p class="hack-description">India's largest hackathon bringing together students and government agencies to solve pressing challenges. Worked on innovative solutions for societal problems using cutting-edge technology.</p>
+                    <div class="hack-highlights">
+                        <h4>Key Highlights</h4>
+                        <div class="highlights-list">
+                            <span class="highlight-tag">Government Problem Statement</span>
+                            <span class="highlight-tag">36-hour Hackathon</span>
+                            <span class="highlight-tag">Team Collaboration</span>
+                            <span class="highlight-tag">Innovation</span>
+                        </div>
+                    </div>
+                    <div class="hack-actions">
+                        <a href="#" class="hack-btn project-btn">🚀 View Project</a>
+                        <a href="https://www.sih.gov.in/" target="_blank" class="hack-btn link-btn">🔗 Official Site</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hackathon-card">
+                <div class="hack-header">
+                    <div class="hack-logo">🛠️</div>
+                    <div class="hack-status finalist">Finalist</div>
+                </div>
+                <div class="hack-content">
+                    <h3 class="hack-title">Hack the System Hackathon</h3>
+                    <p class="hack-organizer">Tech Innovators Network</p>
+                    <p class="hack-date">Completed: 2025</p>
+                    <p class="hack-description">Focused on creating innovative technological solutions that challenge existing systems. Collaborated with a team to develop efficient and scalable software tools.</p>
+                    <div class="hack-highlights">
+                        <h4>Key Highlights</h4>
+                        <div class="highlights-list">
+                            <span class="highlight-tag">System Optimization</span>
+                            <span class="highlight-tag">Team Collaboration</span>
+                            <span class="highlight-tag">Innovation</span>
+                            <span class="highlight-tag">Software Tools</span>
+                        </div>
+                    </div>
+                    <div class="hack-actions">
+                        <a href="https://devpost.com/software/votebuddy-apka-bhartiya-chunaav-salahkaar" class="hack-btn project-btn">🚀 View Project</a>
+                        <a href="#" class="hack-btn link-btn">🔗 Event Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hackathon-card">
+                <div class="hack-header">
+                    <div class="hack-logo">⚡</div>
+                    <div class="hack-status winner">Winner</div>
+                </div>
+                <div class="hack-content">
+                    <h3 class="hack-title">HackVerse Hackathon</h3>
+                    <p class="hack-organizer">HackVerse Platform</p>
+                    <p class="hack-date">Completed: September 2025</p>
+                    <p class="hack-description">Competitive programming hackathon focusing on innovative solutions and coding challenges. Successfully completed the event demonstrating strong problem-solving abilities.</p>
+                    <div class="hack-highlights">
+                        <h4>Key Highlights</h4>
+                        <div class="highlights-list">
+                            <span class="highlight-tag">Certificate Earned</span>
+                            <span class="highlight-tag">Coding Challenges</span>
+                            <span class="highlight-tag">Innovation Focus</span>
+                            <span class="highlight-tag">Technical Skills</span>
+                        </div>
+                    </div>
+                    <div class="hack-actions">
+                        <a href="HackVerse-certificate (1).pdf" target="_blank" class="hack-btn certificate-btn">🏆 Certificate</a>
+                        <a href="https://devpost.com/software/votebuddy-1xgsvt" class="hack-btn project-btn">🚀 View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hackathon-card">
+                <div class="hack-header">
+                    <div class="hack-logo">♻️</div>
+                    <div class="hack-status winner">Winner</div>
+                </div>
+                <div class="hack-content">
+                    <h3 class="hack-title">Zero Boundaries Hackathon</h3>
+                    <p class="hack-organizer">Zero Dump Initiative</p>
+                    <p class="hack-date">Completed: September 2025</p>
+                    <p class="hack-description">This hackathon was centered on environmental solutions and sustainability. My team and I developed a system to optimize waste management, earning a prize for our innovative approach.</p>
+                    <div class="hack-highlights">
+                        <h4>Key Highlights</h4>
+                        <div class="highlights-list">
+                            <span class="highlight-tag">Certificate Earned</span>
+                            <span class="highlight-tag">Environmental Focus</span>
+                            <span class="highlight-tag">Sustainable Solution</span>
+                            <span class="highlight-tag">$30 Prize</span>
+                        </div>
+                    </div>
+                    <div class="hack-actions">
+                        <a href="hack2.pdf" target="_blank" class="hack-btn certificate-btn">🏆 Certificate</a>
+                        <a href="https://devpost.com/software/votebuddy-1xgsvt" class="hack-btn project-btn">🚀 View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <div class="floating-icon" style="font-size: 4rem; margin-bottom: 20px;">🌟</div>
+            <h3>Ready for the Next Challenge</h3>
+            <p>Always looking for innovative hackathons and coding competitions to participate in</p>
+        </div>
+    </div>
+</body>
+</html>

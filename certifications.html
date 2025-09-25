@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications | Parth Shukla</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 30%, #16213e 60%, #0f3460 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 80px 20px 20px;
+            color: #fff;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Advanced particle system */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: floatUp 8s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        .particle-1 {
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #7e03aa, transparent);
+            box-shadow: 0 0 10px #7e03aa;
+        }
+
+        .particle-2 {
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #00fffb, transparent);
+            box-shadow: 0 0 8px #00fffb;
+        }
+
+        .particle-3 {
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #ffae00, transparent);
+            box-shadow: 0 0 12px #ffae00;
+        }
+
+        @keyframes floatUp {
+            0% { 
+                transform: translateY(100vh) scale(0) rotate(0deg); 
+                opacity: 0; 
+            }
+            10% { 
+                opacity: 1; 
+            }
+            90% { 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(-100px) scale(1) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+
+        /* Neural network background */
+        .neural-network {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        .neural-node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(126, 3, 170, 0.8);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .neural-connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 251, 0.3), transparent);
+            transform-origin: left center;
+            animation: dataFlow 4s linear infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 5px rgba(126, 3, 170, 0.5); }
+            50% { transform: scale(1.5); box-shadow: 0 0 15px rgba(126, 3, 170, 0.8); }
+        }
+
+        @keyframes dataFlow {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Advanced floating elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float3D 20s infinite linear;
+        }
+
+        .floating-icon-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-icon-2 {
+            top: 60%;
+            right: 15%;
+            animation-delay: -7s;
+        }
+
+        .floating-icon-3 {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: -14s;
+        }
+
+        @keyframes float3D {
+            0% { 
+                transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); 
+            }
+            25% { 
+                transform: translate3d(50px, -30px, 20px) rotateX(90deg) rotateY(90deg); 
+            }
+            50% { 
+                transform: translate3d(0, -60px, 0) rotateX(180deg) rotateY(180deg); 
+            }
+            75% { 
+                transform: translate3d(-50px, -30px, -20px) rotateX(270deg) rotateY(270deg); 
+            }
+            100% { 
+                transform: translate3d(0, 0, 0) rotateX(360deg) rotateY(360deg); 
+            }
+        }
+
+        /* Morphing background blobs */
+        .morphing-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: morphBlob 10s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            top: 10%;
+            left: 20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(126, 3, 170, 0.1), transparent);
+        }
+
+        .blob-2 {
+            bottom: 20%;
+            right: 20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 255, 251, 0.08), transparent);
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            top: 50%;
+            left: 50%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255, 174, 0, 0.06), transparent);
+            animation-delay: -3s;
+        }
+
+        @keyframes morphBlob {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1) rotate(0deg);
+                border-radius: 50% 50% 50% 50%;
+            }
+            33% { 
+                transform: translate(50px, -30px) scale(1.2) rotate(120deg);
+                border-radius: 60% 40% 70% 30%;
+            }
+            66% { 
+                transform: translate(-30px, 50px) scale(0.8) rotate(240deg);
+                border-radius: 30% 70% 40% 60%;
+            }
+        }
+
+        .certifications-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            animation: slideInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes slideInUp {
+            from { 
+                opacity: 0; 
+                transform: translate3d(0, 60px, 0) rotateX(10deg);
+            }
+            to { 
+                opacity: 1; 
+                transform: translate3d(0, 0, 0) rotateX(0);
+            }
+        }
+
+        /* Enhanced header with holographic effect */
+        .certifications-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .certifications-header::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 6px;
+            background: linear-gradient(90deg, #7e03aa, #00fffb, #ffae00, #7e03aa);
+            background-size: 300% 100%;
+            border-radius: 3px;
+            animation: gradientFlow 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(126, 3, 170, 0.5));
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .certifications-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffae00, #ff6b00, #7e03aa, #00fffb);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 400% 400%;
+            animation: holographicText 4s ease-in-out infinite;
+            position: relative;
+            filter: drop-shadow(0 0 20px rgba(126, 3, 170, 0.3));
+        }
+
+        @keyframes holographicText {
+            0%, 100% { background-position: 0% 50%; transform: rotateY(0deg); }
+            25% { background-position: 25% 25%; transform: rotateY(1deg); }
+            50% { background-position: 100% 50%; transform: rotateY(0deg); }
+            75% { background-position: 75% 75%; transform: rotateY(-1deg); }
+        }
+
+        .certifications-header p {
+            color: #afffff;
+            font-size: 1.3rem;
+            opacity: 0.9;
+            position: relative;
+            animation: fadeInDelay 1s ease-out 0.5s backwards;
+        }
+
+        @keyframes fadeInDelay {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 0.9; transform: translateY(0); }
+        }
+
+        /* Advanced stats with 3D effect */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            perspective: 1000px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            min-width: 140px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(126, 3, 170, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-item:hover::before {
+            opacity: 1;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px) rotateX(10deg) rotateY(5deg);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(126, 3, 170, 0.3);
+            border-color: rgba(126, 3, 170, 0.5);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #00fffb, #7e03aa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: counterGlow 2s ease-out;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #afffff;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        @keyframes counterGlow {
+            from { 
+                opacity: 0; 
+                transform: scale(0.5) rotateX(90deg); 
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1) rotateX(0deg); 
+            }
+        }
+
+        /* Enhanced certification grid */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .certification-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 25px;
+            padding: 35px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: cardSlideIn 1s ease-out;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes cardSlideIn {
+            from { 
+                opacity: 0; 
+                transform: translate3d(-30px, 30px, -50px) rotateY(15deg);
+            }
+            to { 
+                opacity: 1; 
+                transform: translate3d(0, 0, 0) rotateY(0deg);
+            }
+        }
+
+        /* Advanced card effects */
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                rgba(126, 3, 170, 0.1), 
+                rgba(0, 255, 251, 0.1), 
+                transparent);
+            transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .certification-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(126, 3, 170, 0.1), transparent 180deg);
+            opacity: 0;
+            transition: all 0.4s ease;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .certification-card:hover::before {
+            left: 100%;
+        }
+
+        .certification-card:hover::after {
+            opacity: 1;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-20px) scale(1.03) rotateX(5deg);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(126, 3, 170, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border-color: rgba(126, 3, 170, 0.4);
+        }
+
+        /* Enhanced card content */
+        .cert-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+            flex-shrink: 0;
+            margin-right: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cert-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .certification-card:hover .cert-icon {
+            transform: rotateY(360deg);
+        }
+
+        .certification-card:hover .cert-icon::before {
+            opacity: 1;
+            animation: iconShimmer 1.5s ease-in-out;
+        }
+
+        @keyframes iconShimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .aws-icon { 
+            background: linear-gradient(135deg, #ff9500, #ff6b00, #e65100);
+            box-shadow: 0 10px 30px rgba(255, 149, 0, 0.4);
+        }
+        .frontend-icon { 
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24, #c44569);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+        .java-icon { 
+            background: linear-gradient(135deg, #f89820, #b07219, #8b4513);
+            box-shadow: 0 10px 30px rgba(248, 152, 32, 0.4);
+        }
+
+        /* Enhanced status badge */
+        .cert-status {
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verified {
+            background: linear-gradient(135deg, rgba(38, 222, 129, 0.2), rgba(38, 222, 129, 0.1));
+            color: #26de81;
+            border: 1px solid rgba(38, 222, 129, 0.4);
+            box-shadow: 0 0 25px rgba(38, 222, 129, 0.3);
+        }
+
+        .verified::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(38, 222, 129, 0.4), transparent);
+            transition: left 2s ease;
+        }
+
+        .certification-card:hover .verified::before {
+            left: 100%;
+        }
+
+        /* Enhanced card content */
+        .cert-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .cert-issuer {
+            color: #00fffb;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .cert-date {
+            color: #afffff;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 25px;
+        }
+
+        .cert-description {
+            color: #e0e0e0;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Enhanced skill progress */
+        .skill-progress {
+            margin: 20px 0 25px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7e03aa, #00fffb, #ffae00);
+            border-radius: 4px;
+            animation: progressGlow 3s ease-out;
+            position: relative;
+            box-shadow: 0 0 15px rgba(126, 3, 170, 0.5);
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: progressShimmer 2s infinite;
+        }
+
+        @keyframes progressGlow {
+            from { width: 0%; }
+        }
+
+        @keyframes progressShimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Enhanced buttons */
+        .cert-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .cert-btn {
+            padding: 14px 28px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 3;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .cert-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translate(-50%, -50%);
+        }
+
+        .cert-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .view-btn {
+            background: linear-gradient(135deg, #7e03aa, #00fffb, #7e03aa);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(126, 3, 170, 0.4);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .view-btn:hover {
+            transform: translateY(-5px) scale(1.05) rotateX(10deg);
+            box-shadow: 0 15px 40px rgba(126, 3, 170, 0.6);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #afffff;
+            backdrop-filter: blur(15px);
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            color: #fff;
+            transform: translateY(-5px) scale(1.05) rotateX(10deg);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Enhanced back button */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #afffff;
+            padding: 15px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: linear-gradient(45deg, rgba(126, 3, 170, 0.3), rgba(0, 255, 251, 0.3));
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translate(-50%, -50%);
+        }
+
+        .back-btn:hover::before {
+            width: 200px;
+            height: 200px;
+        }
+
+        .back-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            color: #fff;
+            transform: translateX(-8px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(126, 3, 170, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 60px 15px 20px;
+            }
+            .certifications-header h1 {
+                font-size: 2.5rem;
+            }
+            .certifications-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .certification-card {
+                padding: 25px 20px;
+            }
+            .cert-actions {
+                flex-direction: column;
+            }
+            .cert-btn {
+                justify-content: center;
+            }
+            .back-btn {
+                top: 20px;
+                left: 20px;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            .stats-bar {
+                gap: 25px;
+            }
+            .stat-item {
+                min-width: 120px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .certifications-header h1 {
+                font-size: 2rem;
+            }
+            .certification-card {
+                padding: 20px 15px;
+            }
+            .cert-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+            }
+            .cert-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Advanced particle system -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Neural network background -->
+    <div class="neural-network" id="neural-network"></div>
+
+    <!-- Morphing background -->
+    <div class="morphing-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Floating elements -->
+    <div class="floating-elements">
+        <div class="floating-icon floating-icon-1">☁️</div>
+        <div class="floating-icon floating-icon-2">☕</div>
+        <div class="floating-icon floating-icon-3">🌐</div>
+    </div>
+
+    <a href="index.html" class="back-btn">← Back to Profile</a>
+    
+    <div class="certifications-container">
+        <div class="certifications-header">
+            <h1>My Certifications</h1>
+            <p>Professional certifications and achievements in cutting-edge technology</p>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Active Certifications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2025</div>
+                <div class="stat-label">Recent Year</div>
+            </div>
+        </div>
+        
+        <div class="certifications-grid">
+            <!-- AWS Certification -->
+            <div class="certification-card">
+                <div class="cert-header">
+                    <div class="cert-icon aws-icon">☁️</div>
+                    <div class="cert-status verified">Verified</div>
+                </div>
+                <div class="cert-content">
+                    <h3 class="cert-title">AWS Cloud Practitioner Essentials</h3>
+                    <p class="cert-issuer">Amazon Web Services</p>
+                    <p class="cert-date">Issued: August 4, 2024 • No Expiration</p>
+                    <p class="cert-description">Validates foundational knowledge of AWS Cloud concepts, core services, security best practices, pricing models, and support structures. Demonstrates understanding of cloud computing benefits and AWS global infrastructure.</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="cert-actions">
+                        <a href="AWS certificate.pdf" target="_blank" class="cert-btn view-btn">📄 View Certificate</a>
+                        <a href="AWS certificate.pdf" download class="cert-btn download-btn">⬇️ Download PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Java Certification -->
+            <div class="certification-card">
+                <div class="cert-header">
+                    <div class="cert-icon java-icon">☕</div>
+                    <div class="cert-status verified">Verified</div>
+                </div>
+                <div class="cert-content">
+                    <h3 class="cert-title">SkillUp Certified Java Developer</h3>
+                    <p class="cert-issuer">SkillUp by Simplilearn</p>
+                    <p class="cert-date">Issued: September 22, 2024 • Expires: October 2026</p>
+                    <p class="cert-description">Demonstrates comprehensive proficiency in Java programming language, object-oriented programming principles, data structures, algorithms, and enterprise application development using modern Java frameworks.</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                    <div class="cert-actions">
+                        <a href="certificate skillup java.pdf" target="_blank" class="cert-btn view-btn">📄 View Certificate</a>
+                        <a href="certificate skillup java.pdf" download class="cert-btn download-btn">⬇️ Download PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gen AI Development Certification -->
+            <div class="certification-card">
+                <div class="cert-header">
+                    <div class="cert-icon frontend-icon">🤖</div>
+                    <div class="cert-status verified">Verified</div>
+                </div>
+                <div class="cert-content">
+                    <h3 class="cert-title">Career Essentials in Generative AI</h3>
+                    <p class="cert-issuer">Microsoft & LinkedIn Learning</p>
+                    <p class="cert-date">Issued: October 11, 2024 • No Expiration</p>
+                    <p class="cert-description">Comprehensive understanding of generative AI fundamentals, large language models, prompt engineering techniques, ethical AI considerations, and practical applications in business and development contexts.</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                    <div class="cert-actions">
+                        <a href="CertificateOfCompletion_Career Essentials in Generative AI by Microsoft and LinkedIn.pdf" target="_blank" class="cert-btn view-btn">📄 View Certificate</a>
+                        <a href="CertificateOfCompletion_Career Essentials in Generative AI by Microsoft and LinkedIn.pdf" download class="cert-btn download-btn">⬇️ Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Advanced particle system
+        function createAdvancedParticles() {
+            const particleContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                const particleType = Math.floor(Math.random() * 3) + 1;
+                
+                particle.className = `particle particle-${particleType}`;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (6 + Math.random() * 4) + 's';
+                
+                particleContainer.appendChild(particle);
+            }
+        }
+
+        // Neural network background
+        function createNeuralNetwork() {
+            const container = document.getElementById('neural-network');
+            const nodeCount = 20;
+            const nodes = [];
+
+            // Create nodes
+            for (let i = 0; i < nodeCount; i++) {
+                const node = document.createElement('div');
+                node.className = 'neural-node';
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.animationDelay = Math.random() * 3 + 's';
+                
+                container.appendChild(node);
+                nodes.push({
+                    element: node,
+                    x: parseFloat(node.style.left),
+                    y: parseFloat(node.style.top)
+                });
+            }
+
+            // Create connections
+            nodes.forEach((nodeA, i) => {
+                nodes.slice(i + 1).forEach(nodeB => {
+                    const distance = Math.sqrt(
+                        Math.pow(nodeA.x - nodeB.x, 2) + 
+                        Math.pow(nodeA.y - nodeB.y, 2)
+                    );
+                    
+                    if (distance < 30) {
+                        const connection = document.createElement('div');
+                        connection.className = 'neural-connection';
+                        
+                        const angle = Math.atan2(nodeB.y - nodeA.y, nodeB.x - nodeA.x);
+                        const length = distance * (window.innerWidth / 100);
+                        
+                        connection.style.left = nodeA.x + '%';
+                        connection.style.top = nodeA.y + '%';
+                        connection.style.width = length + 'px';
+                        connection.style.transform = `rotate(${angle}rad)`;
+                        connection.style.animationDelay = Math.random() * 4 + 's';
+                        
+                        container.appendChild(connection);
+                    }
+                });
+            });
+        }
+
+        // Enhanced card interactions
+        function setupAdvancedCardEffects() {
+            const cards = document.querySelectorAll('.certification-card');
+            
+            cards.forEach((card, index) => {
+                // Staggered animation delay
+                card.style.animationDelay = `${index * 0.2}s`;
+                
+                // Advanced mouse tracking
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 8;
+                    const rotateY = (centerX - x) / 8;
+                    
+                    card.style.transform = `translateY(-20px) scale(1.03) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) scale(1) rotateX(0deg) rotateY(0deg)';
+                });
+
+                // Advanced click effect
+                card.addEventListener('click', (e) => {
+                    const ripple = document.createElement('div');
+                    const rect = card.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    
+                    ripple.style.position = 'absolute';
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                    ripple.style.background = 'radial-gradient(circle, rgba(126, 3, 170, 0.3), transparent)';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'rippleExpand 0.8s ease-out forwards';
+                    ripple.style.pointerEvents = 'none';
+                    ripple.style.zIndex = '10';
+                    
+                    card.style.position = 'relative';
+                    card.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 800);
+                });
+            });
+        }
+
+        // Advanced stats counter with easing
+        function animateStatsCounter() {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumbers = entry.target.querySelectorAll('.stat-number');
+                        
+                        statNumbers.forEach(stat => {
+                            const finalValue = stat.textContent;
+                            const isPercentage = finalValue.includes('%');
+                            const numericValue = parseInt(finalValue.replace('%', ''));
+                            
+                            let currentValue = 0;
+                            const increment = numericValue / 60; // 60 frames for 1 second
+                            const duration = 2000;
+                            const startTime = performance.now();
+                            
+                            function updateCounter(currentTime) {
+                                const elapsed = currentTime - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                
+                                // Easing function
+                                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                                currentValue = Math.floor(numericValue * easeOutCubic);
+                                
+                                stat.textContent = currentValue + (isPercentage ? '%' : '');
+                                
+                                if (progress < 1) {
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    stat.textContent = finalValue;
+                                }
+                            }
+                            
+                            requestAnimationFrame(updateCounter);
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsBar = document.querySelector('.stats-bar');
+            if (statsBar) statsObserver.observe(statsBar);
+        }
+
+        // Enhanced typing effect for header
+        function createTypingEffect() {
+            const headerTitle = document.querySelector('.certifications-header h1');
+            const originalText = headerTitle.textContent;
+            headerTitle.textContent = '';
+            
+            let charIndex = 0;
+            const typingSpeed = 80;
+            
+            function typeChar() {
+                if (charIndex < originalText.length) {
+                    headerTitle.textContent += originalText.charAt(charIndex);
+                    charIndex++;
+                    
+                    // Add cursor effect
+                    const cursor = document.createElement('span');
+                    cursor.textContent = '|';
+                    cursor.style.animation = 'blink 1s infinite';
+                    cursor.style.marginLeft = '2px';
+                    headerTitle.appendChild(cursor);
+                    
+                    setTimeout(() => {
+                        if (cursor.parentNode) cursor.remove();
+                        typeChar();
+                    }, typingSpeed);
+                } else {
+                    // Final cursor blink
+                    const finalCursor = document.createElement('span');
+                    finalCursor.textContent = '|';
+                    finalCursor.style.animation = 'blink 1s infinite';
+                    finalCursor.style.marginLeft = '2px';
+                    headerTitle.appendChild(finalCursor);
+                    
+                    setTimeout(() => finalCursor.remove(), 2000);
+                }
+            }
+            
+            setTimeout(typeChar, 800);
+        }
+
+        // Add CSS for animations
+        const dynamicStyles = document.createElement('style');
+        dynamicStyles.textContent = `
+            @keyframes rippleExpand {
+                to { transform: scale(1); opacity: 0; }
+            }
+            
+            @keyframes blink {
+                0%, 50% { opacity: 1; }
+                51%, 100% { opacity: 0; }
+            }
+            
+            .cert-btn:active {
+                transform: translateY(-3px) scale(0.98);
+                transition: transform 0.1s ease;
+            }
+            
+            .floating-icon:hover {
+                animation-play-state: paused;
+                transform: scale(1.5) rotate(360deg);
+                opacity: 0.3;
+            }
+            
+            .neural-node:hover {
+                transform: scale(2);
+                background: rgba(0, 255, 251, 1);
+                box-shadow: 0 0 20px rgba(0, 255, 251, 0.8);
+                z-index: 10;
+            }
+        `;
+        document.head.appendChild(dynamicStyles);
+
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Performance-optimized scroll effects
+        let ticking = false;
+        
+        function updateScrollEffects() {
+            const scrollY = window.pageYOffset;
+            const cards = document.querySelectorAll('.certification-card');
+            
+            cards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isVisible) {
+                    const parallaxSpeed = 0.5;
+                    const offset = scrollY * parallaxSpeed * (index % 2 === 0 ? 1 : -1);
+                    card.style.transform += ` translateZ(${offset * 0.1}px)`;
+                }
+            });
+            
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick);
+
+        // Initialize all effects
+        document.addEventListener('DOMContentLoaded', () => {
+            createAdvancedParticles();
+            createNeuralNetwork();
+            setupAdvancedCardEffects();
+            animateStatsCounter();
+            createTypingEffect();
+            
+            // Add loading animation completion
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+
+        // Handle visibility change for performance
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                // Pause animations when tab is not visible
+                document.querySelectorAll('.particle, .neural-node, .blob').forEach(el => {
+                    el.style.animationPlayState = 'paused';
+                });
+            } else {
+                // Resume animations when tab becomes visible
+                document.querySelectorAll('.particle, .neural-node, .blob').forEach(el => {
+                    el.style.animationPlayState = 'running';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

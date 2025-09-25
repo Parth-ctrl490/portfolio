@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | Parth Shukla</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background:
+                linear-gradient(135deg, rgba(12,12,12,0.86) 0%, rgba(26,26,46,0.81) 50%, rgba(22,33,62,0.85) 100%),
+                url('6031903.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+        .contact-container {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease;
+        }
+        @keyframes fadeInUp {
+            from {opacity:0; transform:translateY(30px);}
+            to {opacity:1; transform:translateY(0);}
+        }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .contact-header h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+            background-size: 400% 400%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%,100% {background-position:0% 50%;}
+            50% {background-position:100% 50%;}
+        }
+        .contact-header p {
+            color: #afffff;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .contact-item:hover {
+            background: rgba(255,255,255,0.11);
+            border-color: rgba(126, 3, 170, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(126,3,170,0.15);
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .email-icon { 
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        }
+        .phone-icon { 
+            background: linear-gradient(45deg, #00d2d3, #54a0ff);
+        }
+        .linkedin-icon { 
+            background: linear-gradient(45deg, #0077b5, #005885);
+        }
+        .github-icon { 
+            background: linear-gradient(45deg, #333, #666);
+        }
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+        .contact-details {
+            flex: 1;
+        }
+        .contact-label {
+            color: #afffff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            opacity: 0.7;
+        }
+        .contact-value {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            word-break: break-all;
+        }
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+        }
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #afffff;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.18);
+            color: #fff;
+            transform: translateX(-5px);
+        }
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 30px 15px;
+                margin: 20px;
+            }
+            .contact-header h1 {
+                font-size: 2rem;
+            }
+            .back-btn {
+                top: 20px;
+                left: 20px;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            .contact-value {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Back to Profile</a>
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Contact Me</h1>
+            <p>Let's connect and create something amazing together!</p>
+        </div>
+        <div class="contact-methods">
+            <div class="contact-item">
+                <a href="mailto:2k23.psitaiml2310215@gmail.com">
+                    <div class="contact-icon email-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">2k23.psitaiml2310215@gmail.com</div>
+                    </div>
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="tel:+919876543210">
+                    <div class="contact-icon phone-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value">+91 98765 43210</div>
+                    </div>
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.linkedin.com/in/parth-shukla-0b5a57287/" target="_blank">
+                    <div class="contact-icon linkedin-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">Connect with me</div>
+                    </div>
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="https://github.com/Parth-ctrl490" target="_blank">
+                    <div class="contact-icon github-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-label">GitHub</div>
+                        <div class="contact-value">View my projects</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
